@@ -12,7 +12,7 @@ const app = express()
 db()
 
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' ? 'https://social-e04vercel-client.vercel.app/' : 'http://localhost:3000',
+    origin: process.env.NODE_ENV === 'production' ? 'https://social-e04vercel-client.vercel.app' : 'http://localhost:3000',
     credentials: true
 }))
 
