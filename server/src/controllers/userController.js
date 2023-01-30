@@ -80,7 +80,7 @@ export const login = async (req, res) => {
         console.log("🚀 ~ login ~ token", token)
 
         res.cookie('e04', token)
-
+        console.log(res.getHeaders());
         res.send({success: true, user: newUser})
         
     } catch (error) {
@@ -182,7 +182,7 @@ export const logout = async (req, res) => {
     try {
         console.log("🚀 ~ hello logout ")
 
-        res.clearCookie('e04')
+        res.clearCookie('e04',  {path: '/'})
 
         res.send({success: true})
         

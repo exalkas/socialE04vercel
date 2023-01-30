@@ -15,7 +15,7 @@ function Header() {
 
     const handleLogout = async () => {
 
-        const response = await axios.get(baseUrl + '/users/logout')
+        const response = await axios.get(baseUrl + '/users/logout', {withCredentials: true})
         console.log("🚀 ~ handleLogout ~ response", response)
 
         dispatch({
@@ -32,7 +32,7 @@ function Header() {
             <Link to='/dashboard'><FaHome className='hover:text-slate-600'/> </Link>
             <Link to='/profile'><CgProfile className='hover:text-slate-600'/> </Link>
             <FiLogOut className='hover:text-slate-600 cursor-pointer' onClick={handleLogout}/>
-            <img className='w-[50px] h-[50px] object-cover rounded-full' src={state.user.image}/>
+            <img className='w-[50px] h-[50px] object-cover rounded-full' src={state.user.image} alt=''/>
         
 
         </div>
