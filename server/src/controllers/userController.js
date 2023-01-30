@@ -79,7 +79,7 @@ export const login = async (req, res) => {
         const token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: '1h'})
         console.log("🚀 ~ login ~ token", token)
 
-        res.cookie('e04', token, {sameSite: 'none'})
+        res.cookie('e04', token, {sameSite: 'none',  secure: true})
         console.log(res.getHeaders());
         res.send({success: true, user: newUser})
         
