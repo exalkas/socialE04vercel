@@ -16,7 +16,7 @@ function Register() {
     })
 
     const handleLogin = async () => {
-        const response = await axios.post(baseUrl + "/users/login", data)
+        const response = await axios.post(baseUrl + "/users/login", data, {withCredentials: true, credentials: 'include'})
         console.log("🚀 ~ handleLogin ~ response", response)
 
         if (response.data.success) {
