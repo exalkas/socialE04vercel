@@ -15,7 +15,7 @@ function Header() {
 
     const handleLogout = async () => {
 
-        const response = await axios.get(baseUrl + '/users/logout', {withCredentials: true})
+        const response = await axios.get(baseUrl + '/users/logout', {withCredentials: true, credentials: 'include'})
         console.log("🚀 ~ handleLogout ~ response", response)
 
         dispatch({
