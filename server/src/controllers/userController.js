@@ -182,7 +182,7 @@ export const logout = async (req, res) => {
     try {
         console.log("🚀 ~ hello logout ")
 
-        res.clearCookie('e04',  {path: '/'})
+        res.clearCookie('e04',  {sameSite: 'none',  secure: true})
 
         res.send({success: true})
         
