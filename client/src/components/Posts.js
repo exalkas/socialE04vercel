@@ -38,7 +38,8 @@ function Posts() {
         const formdata = new FormData()
 
         formdata.set('text', text)
-        formdata.set('image', fileData.file, 'postImage')
+
+        if (fileData.file) formdata.set('image', fileData.file, 'postImage')
        
         const config = {Headers: {
             'content-type': 'multipart/formdata'
