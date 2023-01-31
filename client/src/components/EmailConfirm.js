@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { baseUrl } from '../config/baseUrl.js';
 
 function EmailConfirm() {
 
@@ -11,7 +12,7 @@ function EmailConfirm() {
 
         async function getData() {
 
-            const response = await axios.post('/users/emailconfirm', {token})
+            const response = await axios.post(baseUrl + '/users/emailconfirm', {token})
             console.log("🚀 ~ getData ~ response", response)
 
             if (response.data.success) {

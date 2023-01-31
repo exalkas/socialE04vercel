@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from '../config/baseUrl.js';
 
 function ForgotPass() {
 
@@ -10,7 +11,7 @@ function ForgotPass() {
 
     const handleSubmit = async () => {
 
-        const response = await axios.post('/users/forgotpass', data)
+        const response = await axios.post(baseUrl + '/users/forgotpass', data)
         console.log("🚀 ~ handleSubmit ~ response", response)
 
         if (response.data.success) alert('We have sent you an email with instructions about how to change your password')

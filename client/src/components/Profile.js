@@ -17,6 +17,7 @@ import Checkbox from '@mui/material/Checkbox';
 import noImg from '../images/no-img.jpg'
 import { useContext, useState } from 'react'
 import {AppContext} from './Context'
+import { baseUrl } from '../config/baseUrl.js';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -74,7 +75,7 @@ function Profile() {
             withCredentials: true
         }
 
-        const response = await axios.post('/users/profile', formdata, config)
+        const response = await axios.post(baseUrl + '/users/profile', formdata, config)
         console.log("🚀 ~ handleSave ~ response", response)
 
         if (response.data.success) dispatch({

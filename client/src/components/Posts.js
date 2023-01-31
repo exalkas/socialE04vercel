@@ -44,7 +44,7 @@ function Posts() {
             'content-type': 'multipart/formdata'
         }, withCredentials: true}
 
-        const response = await axios.post('/posts/add', formdata, config)
+        const response = await axios.post(baseUrl + '/posts/add', formdata, config)
         console.log("🚀 ~ handleSave ~ response", response)
 
         if (response.data.success) {
