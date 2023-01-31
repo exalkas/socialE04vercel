@@ -20,7 +20,7 @@ function Comment({item, postId}) {
 
         if (item.owner._id !== state.user._id) return alert('You don\'t have permission to perform this action')
 
-        const response = await axios.delete(`/posts/comments/delete/${postId}/${item._id}`)
+        const response = await axios.delete(`/posts/comments/delete/${postId}/${item._id}`, {withCredentials: true})
         console.log("🚀 ~ handleDeleteComment ~ response", response)
 
         if (response.data.success) dispatch({
@@ -44,7 +44,7 @@ function Comment({item, postId}) {
             postId,
             comment: commentToEdit.comment,
             commentId: item._id
-        })
+        }, {withCredentials: true})
         console.log("🚀 ~ handleSaveComment ~ response", response)
     
         if (response.data.success) dispatch({

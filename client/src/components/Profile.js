@@ -70,7 +70,8 @@ function Profile() {
         if (fileData.file) formdata.set('image', fileData.file, 'profileImage')
 
         const config = {
-            Headers: {'content-type': 'multipart/form-data'}
+            Headers: {'content-type': 'multipart/form-data'}, 
+            withCredentials: true
         }
 
         const response = await axios.post('/users/profile', formdata, config)

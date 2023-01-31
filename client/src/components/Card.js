@@ -31,7 +31,7 @@ function Card({post}) {
 
     const handleDeletePost = async (id) => {
 
-        const response = await axios.delete(baseUrl + '/posts/delete', {data: {id}})
+        const response = await axios.delete(baseUrl + '/posts/delete', {data: {id}}, {withCredentials: true})
         console.log("🚀 ~ handleDeletePost ~ response", response)
 
         if (response.data.success) dispatch({
@@ -48,7 +48,7 @@ function Card({post}) {
 
     const handleSavePost = async () => {
 
-        const response = await axios.put(baseUrl + '/posts/edit', postToEdit)
+        const response = await axios.put(baseUrl + '/posts/edit', postToEdit,  {withCredentials: true})
         console.log("🚀 ~ handleSavePost ~ response", response)
 
         if (response.data.success) {
@@ -85,7 +85,7 @@ function Card({post}) {
         const response = await axios.post(baseUrl + '/posts/comments/add', {
             postId: post._id,
             comment
-        })
+        }, {withCredentials: true})
         console.log("🚀 ~ handleSendComment ~ response", response)
 
         if (response.data.success) dispatch({

@@ -42,7 +42,7 @@ function Posts() {
        
         const config = {Headers: {
             'content-type': 'multipart/formdata'
-        }}
+        }, withCredentials: true}
 
         const response = await axios.post('/posts/add', formdata, config)
         console.log("🚀 ~ handleSave ~ response", response)
